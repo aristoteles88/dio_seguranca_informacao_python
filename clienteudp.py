@@ -6,17 +6,17 @@ print("Socket criado com sucesso!")
 
 host = 'localhost'
 port = 5433
-message = 'Olá servidor! Tudo bem?'
+message = '\nCliente: Olá servidor! Tudo bem?'
 
 
 try:
-    print(f"Cliente: {message}")
-    s.sendto(message.encode(), (host, port))
+    print(f"\nCliente: {message}")
+    s.sendto(message.encode(), (host, 5432))
 
     data, server = s.recvfrom(4096)
     data = data.decode()
 
-    print(f"Cliente: {data}")
+    print(f"\nCliente: {data}")
 finally:
-    print("Cliente: Fechando a conexão.")
+    print("\nCliente: Fechando a conexão.")
     s.close()
